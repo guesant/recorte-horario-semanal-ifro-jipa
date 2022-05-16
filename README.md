@@ -35,9 +35,9 @@ dotnet run <horario-geral.pdf> <payload.json> <horario-recortado.png>
 
 Vamos supor que:
 
-- O arquivo PDF com o Horário Geral se chame: `horario-geral.pdf`;
-- O _payload_ seja o da turma "2ªA Informática" : [`../samples/payload-inf-2a.json`](./samples/payload-inf-2a.json);
-- O arquivo final se chamará: `horario-recortado-2a.png`;
+- O arquivo PDF com o Horário Geral possui o nome `horario-geral.pdf`;
+- O _payload_ seja o da turma "2ªA Informática": [`./samples/payload-inf-2a.json`](./samples/payload-inf-2a.json);
+- O arquivo final se chamará `horario-recortado-2a.png`;
 
 ```sh
 dotnet run horario-geral.pdf ../samples/payload-inf-2a.json horario-recortado-2a.png
