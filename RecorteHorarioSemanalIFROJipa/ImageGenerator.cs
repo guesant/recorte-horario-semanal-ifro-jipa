@@ -26,13 +26,19 @@ public class ImageGenerator
 
     public static void Generate(Payload payload, string originalPDFFilename, string outputImageFilename)
     {
+      System.Console.WriteLine("doido");
         var manualImageDisposer = new VipsImageDisposer();
 
         using var originalPage = Image.Pdfload(originalPDFFilename, payload.Page, 1, payload.DPI);
 
         Console.WriteLine($"[info] Grade geral carregada com sucesso ({FormatImageDimensions(originalPage)}).");
+        
+        var tableHeaderX = (int)(payload.Header.X * payload.DPI);
+        var tableHeaderY = (int)(payload.Header.Y * payload.DPI);
+        var tableHeaderWidth = (int)(payload.Header.Width * payload.DPI);
+        var tableHeaderHeight = (int)(payload.Header.Height * payload.DPI);
 
-        using var tableHeader = originalPage.Copy().Crop(payload.Header.X, payload.Header.Y, payload.Header.Width, payload.Header.Height);
+        using var tableHeader = originalPage.Copy().Crop(tableHeaderX, tableHeaderY, tableHeaderWidth, tableHeaderHeight);
 
         var finalTable = tableHeader.Copy();
 
@@ -40,15 +46,21 @@ public class ImageGenerator
 
         foreach (var grade in payload.ClassesTimeTables)
         {
-            var x = grade.X;
+            var gradeX = (int)(grade.X * payload.DPI);
 
-            var y = (int)(grade.Y != null ? grade.Y : payload.Header.ClassTimeTableY);
+            var gradeY = (int)((grade.Y != null ? grade.Y : payload.Header.ClassTimeTableY) * payload.DPI);
 
-            var width = (int)(grade.Width != null ? grade.Width : payload.Header.ClassTimeTableWidth);
+            var gradeWidth = (int)((grade.Width != null ? grade.Width : payload.Header.ClassTimeTableWidth) * payload.DPI);
 
-            var height = (int)(grade.Height != null ? grade.Height : (payload.Header.ClassTimeTableHeight != null ? payload.Header.ClassTimeTableHeight : payload.Header.Height));
+            var gradeHeight = (int)((grade.Height != null ? 
+              grade.Height : 
+              (payload.Header.ClassTimeTableHeight != null ?
+                payload.Header.ClassTimeTableHeight :
+                payload.Header.Height
+              )
+            ) * payload.DPI);
 
-            using var horarioTurma = originalPage.Copy().Crop(x, y, width, height);
+            using var horarioTurma = originalPage.Copy().Crop(gradeX, gradeY, gradeWidth, gradeHeight);
 
             finalTable = finalTable.Join(horarioTurma, Enums.Direction.Horizontal);
 
@@ -58,9 +70,9 @@ public class ImageGenerator
         using var finalImage = finalTable;
 
         finalImage.WriteToFile(outputImageFilename);
-
+        
         Console.WriteLine($"[info] Arquivo final gerado com sucesso ({FormatImageDimensions(finalImage)}).");
-
+        
         manualImageDisposer.Run();
     }
 }

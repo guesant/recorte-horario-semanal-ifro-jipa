@@ -1,17 +1,17 @@
 {
   "page": 0,
-  "dpi": 200,
+  "dpi": 300,
   "header": {
-    "x": 55,
-    "y": 100,
-    "width": 265,
-    "height": 1425,
-    "classTimeTableY": 100,
-    "classTimeTableWidth": 314
+    "x": 0.275,
+    "y": 0.5,
+    "width": 1.325,
+    "height": 7.125,
+    "classTimeTableY": 0.5,
+    "classTimeTableWidth": 1.57
   },
   "classesTimeTables": [
     {
-      "x": 945
+      "x": 4.725
     }
   ]
 }

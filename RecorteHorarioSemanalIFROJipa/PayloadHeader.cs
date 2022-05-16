@@ -17,13 +17,13 @@
 
 public class PayloadHeader
 {
-    public int X { get; set; }
-    public int Y { get; set; }
+    public double X { get; set; }
+    public double Y { get; set; }
 
-    public int Width { get; set; }
-    public int Height { get; set; }
+    public double Width { get; set; }
+    public double Height { get; set; }
 
-    public int ClassTimeTableY { get; set; }
-    public int ClassTimeTableWidth { get; set; }
-    public int? ClassTimeTableHeight { get; set; }
+    public double ClassTimeTableY { get; set; }
+    public double ClassTimeTableWidth { get; set; }
+    public double? ClassTimeTableHeight { get; set; }
 }
