@@ -43,7 +43,7 @@ Vamos supor que:
 dotnet run horario-geral.pdf ../samples/payload-inf-2a.json horario-recortado-2a.png
 ```
 
-https://user-images.githubusercontent.com/43099880/168502028-0a69e9d9-1e8b-41ea-8fc5-cbaa9ad02ab4.mp4
+https://user-images.githubusercontent.com/43099880/168505658-5a0ace1c-e04f-4f13-bd8a-160dc318cf24.mp4
 
 ## Author
 
