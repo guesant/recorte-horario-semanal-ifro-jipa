@@ -31,8 +31,6 @@ Uso da CLI:
 dotnet run <horario-geral.pdf> <payload.json> <horario-recortado.png>
 ```
 
-https://user-images.githubusercontent.com/43099880/168502028-0a69e9d9-1e8b-41ea-8fc5-cbaa9ad02ab4.mp4
-
 ---
 
 Vamos supor que:
@@ -44,6 +42,8 @@ Vamos supor que:
 ```sh
 dotnet run horario-geral.pdf ../samples/payload-inf-2a.json horario-recortado-2a.png
 ```
+
+https://user-images.githubusercontent.com/43099880/168502028-0a69e9d9-1e8b-41ea-8fc5-cbaa9ad02ab4.mp4
 
 ## Author
 
